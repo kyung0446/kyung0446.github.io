@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			.modal {
+				display: none;
+
+				/* 전체화면으로 만든다 */
+				width: 100%;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.5);
+				padding-top: 100px;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+
+			/* The Close Button */
+			.close {
+				position: absolute;
+				top: 15px;
+				right: 35px;
+				color: #f1f1f1;
+				font-size: 3em;
+				font-weight: bold;
+				transition: 0.3s;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #bbb;
+				cursor: pointer;
+			}
+			@keyframes zoom {
+				0% {
+					transform: scale(0);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			/* Modal Content (image) */
+			.modal-content {
+				margin: auto;
+				display: block;
+				width: 80%;
+				max-width: 700px;
+			}
+			.modal-content {
+				animation: zoom 0.6s;
+			}
+		</style>
+	</head>
+	<body>
+		<img
+			src="images/bg_image.jpg"
+			alt="BG_IMAGE"
+			style="width: 100%; max-width: 300px;"
+		/>
+
+		<!-- The Modal -->
+		<div class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" />
+		</div>
+
+		<script>
+			//modal 객체를 가지고 온다.
+			let modal = document.querySelector(".modal");
+
+			//modal 창이 생성되면 클릭한 이미지의 경로를 모달창에 보여준다.
+			let clickImg = document.querySelector("body>img");
+			clickImg.onclick = function () {
+				modal.style.display = "block";
+				modal.children[1].src = this.src;
+			};
+
+			let closeBtn = modal.children[0];
+			closeBtn.onclick = function(){
+				modal.style.display = "none";
+			}
+		</script>
+	</body>
+</html>

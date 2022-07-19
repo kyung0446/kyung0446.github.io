@@ -1,0 +1,433 @@
+@charset "utf-8";
+
+/* HEAD ***************************/
+#head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* logo */
+#head > .logo {
+  /* 로고 항목을 다 차지 */
+  background-color: #fece48;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 10px;
+  font-size: 25px;
+  color: #fff;
+  font-weight: bolder;
+}
+#head > .logo span {
+  color: #7ed0de;
+}
+/* navigation menu */
+#head > .gnb label[for="menu_btn"] {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 10px auto;
+  /* 기준 위치를 정한다 */
+  position: relative;
+}
+#head > .gnb label[for="menu_btn"] span {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 2px solid #000;
+
+  /* 위치값 지정 */
+  position: absolute;
+  transition: 0.3s;
+}
+#head > .gnb label[for="menu_btn"] span:nth-child(1) {
+  top: 0;
+}
+#head > .gnb label[for="menu_btn"] span:nth-child(2) {
+  top: 50%;
+}
+#head > .gnb label[for="menu_btn"] span:nth-child(3) {
+  top: 100%;
+}
+
+/* X표시 만들기 */
+#head
+  > .gnb
+  > input[id="menu_btn"]:checked
+  + label[for="menu_btn"]
+  span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+#head
+  > .gnb
+  > input[id="menu_btn"]:checked
+  + label[for="menu_btn"]
+  span:nth-child(2) {
+  opacity: 0;
+}
+#head
+  > .gnb
+  > input[id="menu_btn"]:checked
+  + label[for="menu_btn"]
+  span:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+/* 체크여부에 따라 메인 메뉴가 보여진다. */
+#head > .gnb > input[id="menu_btn"] {
+  display: none;
+}
+#head > .gnb > .main_menu {
+  display: none;
+}
+
+#head > .gnb > input[id="menu_btn"]:checked ~ .main_menu {
+  display: block;
+}
+/* 메인메뉴 display */
+
+#head > .gnb > .main_menu {
+  position: absolute;
+  left: 0;
+  z-index: 99;
+  background-color: #fff;
+  width: 100%;
+}
+#head > .gnb > .main_menu li {
+    text-align: left;
+}
+#head > .gnb > .main_menu li > a {
+  display: inline-block;
+  padding: 10px;
+  color: #000;
+  width: 100%;  
+}
+#head > .gnb > .main_menu li:hover a{
+    background-color: #222;
+    color: #fff;
+}
+
+
+/* BANNER *************************/
+#banner {
+  /* 높이지정 */
+  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("images/bg_image.jpg");
+  background-size: cover;
+  background-position: center;
+  /* 컨텐츠들을 중앙으로 정렬 */
+  text-align: center;
+  /* 하나는 중앙으로 */
+  /* 스크롤 글자는 맨 아래로 */
+  position: relative;
+}
+@keyframes banner_title {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#banner > .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 투명도가 조절되는 애니메이션 처리 */
+  animation: banner_title 2s;
+}
+#banner > .title > h1 {
+  /*font-size: 48px;*/
+  /* 320px 일 때 폰트가 48픽셀 1vw-3.2px  48px-15vw*/
+  font-size: 10vw;
+  margin-bottom: 10px;
+  /* 0.2em = 115 * 0.2 = 23px */
+  letter-spacing: 0.2em;
+  /* letter-spacing 은 오른쪽에 여백이 들어감, 균형을 맞출려면 왼쪽에 여백 추가 */
+  margin-left: 0.2em;
+  /* 폰트 색상을 설정한다. */
+  color: #fcfe14;
+  /* 중앙으로 이동 */
+}
+#banner > .title > p {
+  color: #fff;
+  font-size: 4vw;
+  font-weight: bolder;
+}
+#banner > a {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+/* ABOUT *************************/
+#about {
+  width: 300px;
+  margin: 30px auto;  
+  overflow: hidden;
+}
+#about > .container{
+  width: 900px;
+  height: 300px;
+
+  position: relative;
+  left: 0;
+  transition: 1s;
+}
+#about > input[id="tab1"]:checked ~ .container{
+  left: 0px;
+}
+#about > input[id="tab2"]:checked ~ .container{
+  left: -300px;
+}
+#about > input[id="tab3"]:checked ~ .container{
+  left: -600px;
+}
+#about > .container > .item {  
+  text-align: center;
+  width: 300px;
+  float: left;
+}
+
+#about > .container > .item > div {
+  margin-top: 20px;
+}
+
+#about > .container > .item > div:nth-child(1) {
+  display: inline-block;
+  font-size: 50px;
+  
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  
+  background-color: #fece48;
+  border-radius: 50%;
+} 
+#about > .tab_btn{
+  text-align: center;
+}
+#about>.tab_btn > label{
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: #222;
+}
+#about > input[name="tab"]{
+  display: none;
+}
+#about > input[id="tab1"]:checked ~ .tab_btn label[for="tab1"],
+#about > input[id="tab2"]:checked ~ .tab_btn label[for="tab2"],
+#about > input[id="tab3"]:checked ~ .tab_btn label[for="tab3"]
+{
+  background-color: rgb(228, 63, 63);
+  border-radius: 3px;
+}
+
+
+/* PORTFOLIO *************************/
+#portfolio {
+  /* 하위 모든 요소를 중앙 정렬 */
+  background-color: #eee;
+  text-align: center;
+  margin: 30px auto;
+  padding: 30px;
+}
+#portfolio > h1 > a {
+  color: #000;
+  font-size: 3em;
+}
+#portfolio > h2 {
+  margin: 20px 0;
+}
+#portfolio > .container > .photo {
+  width: 350px;
+  margin: 20px auto;
+}
+#portfolio > .container > .photo img {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  opacity: 0.8;
+  transition: 0.5s;
+}
+#portfolio > .container > .photo img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+#portfolio > .container > div:nth-of-type(2) {
+  display: none;
+}
+#portfolio > .container > div:nth-of-type(3) {
+  display: none;
+}
+
+/* CONTACT *************************/
+#contact {
+  text-align: center;
+}
+#contact h1 > a {
+  font-size: 3em;
+  color: #000;
+}
+#contact > .text {
+  display: none;
+}
+#contact > .sns {
+  width: 70%;
+  margin: 20px auto;
+}
+#contact > .sns > a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(190, 190, 190);
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: #fff;
+
+  position: relative;
+  overflow: hidden;
+}
+#contact > .sns > a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  background-color: blue;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+}
+#contact > .sns > a:hover:before {
+  height: 100%;
+}
+#contact > .sns > a .icon {
+  position: relative;
+}
+#contact > .sns > a:nth-child(1):before {
+  background-color: #3b5999;
+}
+#contact > .sns > a:nth-child(2):before {
+  background-color: #55acee;
+}
+#contact > .sns > a:nth-child(3):before {
+  background-color: #dd4b39;
+}
+#contact > .sns > a:nth-child(4):before {
+  background-color: #0077b5;
+}
+
+/* Footer 작성 *************************/
+#footer {
+  text-align: center;
+  /* 배경색을 지정합니다. */
+  background-color: #535353;
+  /* 글자색을 지정합니다. */
+  color: #fff;
+
+  /* 위아래 여백을 주고 가운데로 정렬합니다.*/
+  padding: 30px 0;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+}
+
+/* 미디어 쿼리 작성 *************************/
+
+/* 테블릿 사이즈 */
+@media all and (min-width: 768px) {
+  #head > .gnb > label[for="menu_btn"] {
+    display: none;
+  }
+
+  #head > .gnb > .main_menu {
+    display: flex;
+    position: static;
+  }
+  #head > .gnb > .main_menu li {
+    text-align: center;
+}
+
+  #contact > .text {
+    display: block;
+    width: 350px;
+    margin: 20px auto;
+  }
+  #contact > .text > p {
+    margin-top: 5px;
+  }
+  #portfolio > .container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  #portfolio > .container > .photo {
+    width: 40%;
+  }
+  #portfolio > .container > div:nth-of-type(3) {
+    display: block;
+  }
+}
+
+/* PC 사이즈 */
+@media all and (min-width: 1024px) {
+  #head {
+    width: 1024px;
+    margin: 0 auto;
+  }
+  #head > .gnb > label[for="menu_btn"] {
+    display: none;
+  }
+  #head > .gnb > .main_menu {
+    display: flex;
+    position: static;
+  }
+  #head > .gnb > .main_menu li {
+    text-align: center;
+}
+  #about {
+    width: 90%;
+    margin: 30px auto;
+    overflow: auto;
+  }
+  #about > .container {
+    position: static;
+    margin: 0 auto;
+  }
+  #about > .tab_btn {
+    display: none;
+  }
+  #contact > .text {
+    display: block;
+    width: 350px;
+    margin: 20px auto;
+  }
+  #contact > .text > p {
+    margin-top: 5px;
+  }
+
+  #portfolio > .container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  #portfolio > .container > .photo {
+    width: 30%;
+  }
+
+  #portfolio > .container > div:nth-of-type(2) {
+    display: block;
+  }
+  #portfolio > .container > div:nth-of-type(3) {
+    display: block;
+  }
+}
