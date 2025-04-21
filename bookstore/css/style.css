@@ -47,7 +47,7 @@ section#book{
 }
 .book-img:not(.flipped):hover{
   transform: rotateY(30deg);
-  cursor: url(./images/arow-2.png), auto;
+  cursor: url(../images/arow-2.png), auto;
 }
 .book-img.flipped{
   transform: rotateY(180deg);
