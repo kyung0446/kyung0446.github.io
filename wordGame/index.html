@@ -15,7 +15,6 @@
           <p>시작 단어를 입력하세요</p>
           <div class="input">
             <input type="text" id="start-word">
-            <p>▶</p>
           </div>
           <button id="start-btn">Get Started</button>
         </div>
@@ -25,24 +24,14 @@
           <p>Hello, I'AM 말잇쮸</p>
           <img src="./images/head.png" alt="robot head">
         </div>
-        <ul class="chat">
-          <li>사과</li>
-          <li>바나나</li>          
-        </ul>
-        <p class="ment">이번 제시어는<span></span>입니다</p>
+        <ul class="chat"></ul>
+        <p class="ment">이번 제시어는 <span></span> 입니다</p>
         <div class="input">     
           <input type="text" id="keyword">
-          <p>▶</p>
+          <p id="game-btn">▶</p>
         </div>
       </div>
     </main>
-    <script>
-      document.querySelector("#start-btn").addEventListener("click",()=>{
-        const $main = document.querySelector("#main");
-        $main.style.display = "none";
-        const $game = document.querySelector("#game");
-        $game.style.display = "flex";
-      });
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
