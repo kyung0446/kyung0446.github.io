@@ -1,0 +1,121 @@
+:root{
+  --main-color: #550FAB;
+}
+*{ margin: 0; padding: 0; box-sizing: border-box;}
+ul,li{ list-style: none;}
+body{ 
+  height: 100vh; display: flex; justify-content: center; align-items: center; 
+  background-color: var(--main-color);
+}
+main{ width: 412px; height: 927px; box-shadow: 0 0 10px rgba(0,0,0,0.4); border-radius: 50px;
+overflow: hidden;
+}
+main>div{ width: 100%; height: 100%; }
+
+/* main */
+#main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#main > h1{ text-align: center; color: #eee; }
+#main > div{ width: 80%; }
+#main > div > p{ color: #eee; text-align: center; margin-bottom: 1rem; font-size: 1.3rem;}
+#main button{
+  margin-top: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  padding: 1rem 0;
+  color: var(--main-color);
+}
+/* input 공통 스타일 */
+.input{
+  position: relative;
+}
+.input > input{
+  display: block;  
+  width: 100%;
+  padding: 1rem;
+  border-radius: 50px;
+  font-size: 1.3rem;
+}
+.input > p{  
+  background-color: var(--main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  font-size: 1.5rem;
+  color: #eee;
+  width: 50px;  
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* game */
+#game{
+  background-color: #020018;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+}
+#game > .top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+#game > .top > p{
+  color: #eee;
+  font-size: 1.2rem;
+}
+#game > .top > img{
+  transform: scale(0.6);
+}
+#game > p.ment{
+  color: #eee;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+#game > .chat{
+  flex: 1;
+}
+#game > .chat > li{
+  width: 90%;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  padding:20px 30px;  
+  color: #eee;
+  display: flex;  
+  align-items: center;
+  gap: 1rem;
+}
+#game > .chat > li:nth-child(odd){
+  background-color: #27263B;
+  border-radius: 30px;
+  border-end-start-radius: 0;
+  justify-content: flex-start;
+}
+#game > .chat > li:nth-child(odd)::before{
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-image: url(./images/head.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;  
+}
+#game > .chat > li:nth-child(even){
+  background-color: var(--main-color);
+  border-radius: 30px;
+  border-end-end-radius: 0;
+  justify-content: flex-end;
+}
