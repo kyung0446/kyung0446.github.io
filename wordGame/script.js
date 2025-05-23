@@ -10,7 +10,8 @@ const keywordMent = (keyword) => {
   $ment.textContent = keyword;
 };
 const createChatLi = (keyword) => {
-  const $li = document.createElement("li");
+  const $li = document.createElement("li");  
+  $li.classList.add("enter");
   $li.textContent = keyword;
   $chatList.appendChild( $li);
   if( $chatList.children.length > 7 ){
